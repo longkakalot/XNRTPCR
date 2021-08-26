@@ -1,0 +1,234 @@
+﻿@model IEnumerable<KetQuaPCR>
+
+@{
+    var hoTen = Model.Select(m => m.HoTen).FirstOrDefault();
+    var namSinhNam = Model.Select(m => m.NamSinhNam).FirstOrDefault();
+    var namSinhNu = Model.Select(m => m.NamSinhNu).FirstOrDefault();
+    var soDienThoai = Model.Select(m => m.SoDT).FirstOrDefault();
+    var soNha = Model.Select(m => m.SoNha).FirstOrDefault();
+    var phuongXa = Model.Select(m => m.PhuongXa).FirstOrDefault();
+    var quanHuyen = Model.Select(m => m.QuanHuyen).FirstOrDefault();
+    var tinhThanh = Model.Select(m => m.TinhThanh).FirstOrDefault();
+    var stt = 1;
+}
+
+
+
+<div class="card">
+    <div class="card-header bg-primary">
+        <h4 class="text-white">Thông tin người xét nghiệm</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Họ và tên: </span>
+                    </div>
+                    <span class="form-control"
+                          style="color: blue; font-weight: bold; height: 100%"
+                          aria-describedby="basic-addon3">@hoTen</span>
+
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Năm sinh: </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold"
+                              aria-describedby="basic-addon3">
+                            @if (namSinhNam == "")
+                            {
+                                @namSinhNu
+                            }
+                            else
+                            {
+                                @namSinhNam
+                            }
+                        </span>
+
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Giới tính: </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold"
+                              aria-describedby="basic-addon3">
+                            @if (namSinhNam == "")
+                            {
+                                <span>Nữ</span>
+                            }
+                            else
+                            {
+                                <span>Nam</span>
+                            }
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Số điện thoại: </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold"
+                              aria-describedby="basic-addon3">@soDienThoai
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Địa chỉ: </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold; height: 100%"
+                              aria-describedby="basic-addon3">
+                            @soNha, @phuongXa, @quanHuyen, @tinhThanh
+                        </span>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-header bg-secondary">
+        <h4 class="text-white">Thông tin kết quả xét nghiệm RT-PCR</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Loại mẫu xét nghiệm: </span>
+                    </div>
+                    <span class="form-control"
+                          style="color: blue; font-weight: bold; height: 100%">Dịch tỵ hầu (RT-PCR SARS-COV-2)</span>
+                </div>
+            </div>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <hr />
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <span class="badge badge-info">
+                        Kết quả lần @(stt++)
+                    </span>
+                </div>
+                             
+            </div>
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Đơn vị lấy mẫu: </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold; height: 100%">
+                            @item.NoiLayMau
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Ngày lấy mẫu: </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold; height: 100%">
+                            @item.NgayLayMau.ToString("dd/MM/yyyy HH:mm:ss")
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Đơn vị thực hiện xét nghiệm: </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold; height: 100%"
+                              aria-describedby="basic-addon3">
+                            @item.NoiXN
+                        </span>
+
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Ngày trả kết quả: </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold; height: 100%"
+                              aria-describedby="basic-addon3">
+                            @item.NgayKetQua.ToString("dd/MM/yyyy HH:mm:ss")
+                        </span>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Mã CODE: </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold; height: 100%"
+                              aria-describedby="basic-addon3">
+                            @item.MaLIS
+                        </span>
+
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Kết quả: </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold; height: 100%"
+                              aria-describedby="basic-addon3">
+                            @item.KetQua
+                        </span>
+
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">CT-Value </span>
+                        </div>
+                        <span class="form-control"
+                              style="color: blue; font-weight: bold; height: 100%"
+                              aria-describedby="basic-addon3">
+                            @item.CTE
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

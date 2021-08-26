@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<hr/>
+
+<div class="card">
+    <div class="card-header bg-primary">
+        <h4 class="text-white">Import danh sách xét nghiệm RT-PCR</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                <div class="form-group">
+                    <div class="form-inline">
+                        <input type="file" name="postedFile1" id="txtPostFile1" />
+                        <button id="btnImport" type="button">IMPORT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<hr />
+
+<div class="card">
+    <div class="card-header bg-secondary">
+        <h5 class="text-white">Danh sách đã có kết quả XN RT-PCR</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                <div class="form-group">
+                    <div class="form-inline">
+                        <span>Từ ngày: </span>
+                        <input type="date" id="dtTuNgay" class="form-control ml-2" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                <div class="form-group">
+                    <div class="form-inline">
+                        <span>Đến ngày: </span>
+                        <input type="date" id="dtDenNgay" class="form-control ml-2" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="divGetAll"></div>
+    </div>
+</div>
+
+
+
+
+
+
+@section Scripts{
+    <script>
+        function Upload() {
+            $("#btnImport").click(function () {
+                var myFile = document.getElementById('txtPostFile1');
+                var fd = new FormData();
+                //var files = $('#file')[0].files;
+                var postFiles = myFile.files[0];
+                //var postFile = postFiles[0];
+
+                fd.append("postedFile", postFiles);
+
+                var ext = $('#txtPostFile1').val().split('.').pop().toLowerCase();
+                console.log(fd);
+
+                //Allowed file types
+                if ($.inArray(ext, ['xls', 'xlsx']) == -1) {
+                    alert('The file type is invalid!');
+                    return false;
+                }
+                if (true) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Upload/upload",
+                        data: fd,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            if (response === 0 || response === "0") {
+                                swal.fire({
+                                    title: 'BV Tai mũi họng TP Hồ Chí Minh',
+                                    html:
+                                        '<p style="font-size: 24px; font-weight: bold"><b>UPLOAD DỮ LIỆU THÀNH CÔNG </b></p>',
+                                    type: 'warning'
+                                }).then(function () {
+                                    //$("#btnLuu").prop('disabled', false);
+                                    //print("/ReportFiles/" + response);
+                                    //setTimeout(function () {
+                                    //    window.location.href = "/home";
+                                    //}, 4000);
+                                    GetAll();
+                                });
+
+
+
+
+                            }
+                            else {
+                                swal.fire(response);
+                                return;
+                            }
+
+                        },
+                        failure: function (response) {
+                            swal.fire("Load phiếu 1 - Lỗi kết nối mạng: ");
+                        },
+                        error: function (response) {
+                            swal.fire("Load phiếu 1 - Lỗi kết nối mạng: " + response);
+                        }
+                    });
+                }
+
+            });
+
+        }
+
+        function GetAll() {
+            var tuNgay = $("#dtTuNgay").val();
+            var denNgay = $("#dtDenNgay").val();
+            $.ajax({
+                type: "GET",
+                url: "/Upload/GetAlls",
+                //data: JSON.stringify(objArr),
+                data: { 'tuNgay': tuNgay, 'denNgay': denNgay },
+                //contentType: "application/json; charset=utf-8",
+                dataType: "text",
+                success: function (responses) {
+                    if (responses === 0 || responses === "0") {
+                        swal.fire("Không lấy được thông tin");
+                    } else {
+                        $("#divGetAll").html(responses);
+                    }
+                },
+                failure: function (response) {
+                    alert("failure: GetListChiDinhDaLayMau" + response.responseText);
+                },
+                error: function (response) {
+                    alert("error: GetListChiDinhDaLayMau" + response.responseText);
+                }
+            });
+
+        }
+        $(document).ready(function () {
+            Upload();
+            GetAll();
+        });
+    </script>
+}

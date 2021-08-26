@@ -1,0 +1,3 @@
+﻿SELECT Id, [HoTen]      
+  FROM [eHospital_TMHTP].[dbo].[KQXN_COVID]
+  where SoDT = '{0}' and (NamSinhNam = '{1}' or NamSinhNu = '{1}')

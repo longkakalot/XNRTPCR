@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\Reports\rptKetQua.cs" />
+    <Content Remove="wwwroot\Reports\rptKetQua.Designer.cs" />
+    <Content Remove="wwwroot\Reports\rptKetQua.repx" />
+    <Content Remove="wwwroot\Reports\XtraReport.cs" />
+    <Content Remove="wwwroot\Reports\XtraReport.Designer.cs" />
+    <Content Remove="wwwroot\Reports\XtraReport.repx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\Reports\rptKetQua.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Reports\rptKetQua.Designer.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Reports\XtraReport.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\Reports\XtraReport.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="wwwroot\Reports\rptKetQua.cs">
+      <DependentUpon>rptKetQua.repx</DependentUpon>
+    </Compile>
+    <Compile Include="wwwroot\Reports\rptKetQua.Designer.cs">
+      <DependentUpon>rptKetQua.repx</DependentUpon>
+    </Compile>
+    <Compile Include="wwwroot\Reports\XtraReport.cs">
+      <DependentUpon>XtraReport.repx</DependentUpon>
+    </Compile>
+    <Compile Include="wwwroot\Reports\XtraReport.Designer.cs">
+      <DependentUpon>XtraReport.repx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\Reports\rptKetQua.repx" />
+    <EmbeddedResource Include="wwwroot\Reports\XtraReport.repx" />
+  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Dapper" Version="2.0.78" />
+		<PackageReference Include="DevExpress.Reporting.Core" Version="21.1.4" />
+		<PackageReference Include="DevExpress.Reporting.Core" Version="20.1.3" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+		<PackageReference Include="Serilog.Extensions.Logging.File" Version="2.0.0" />
+		<PackageReference Include="System.Data.OleDb" Version="5.0.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+		<PackageReference Include="EPPlus" Version="5.5.5" />
+		<PackageReference Include="ExcelDataReader" Version="3.6.0" />
+		<PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="wwwroot\ReportPrint\" />
+	  <Folder Include="wwwroot\Uploads\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include="wwwroot\js\site.js" />
+	  <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+	  <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+	  <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+	  <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+	  <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+	  <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+	  <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+	  <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+	  <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+	  <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+	  <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+	  <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+	  <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+	  <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+	  <None Include="wwwroot\lib\bootstrap\LICENSE" />
+	  <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+	  <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+	  <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+	  <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+	  <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+	  <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+	  <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+	  <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+	  <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+	  <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+	</ItemGroup>
+
+</Project>

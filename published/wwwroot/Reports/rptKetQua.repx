@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="20.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="rptKetQua" Margins="39, 39, 39, 39" PaperKind="A4" PageWidth="827" PageHeight="1169" Version="20.1" DataSource="#Ref-0">
+  <Bands>
+    <Item1 Ref="2" ControlType="TopMarginBand" Name="topMarginBand1" HeightF="39" />
+    <Item2 Ref="3" ControlType="DetailBand" Name="detailBand1" HeightF="642.083435">
+      <Controls>
+        <Item1 Ref="4" ControlType="XRLabel" Name="label24" Multiline="true" Text="label19" TextAlignment="TopLeft" SizeF="105.208267,23" LocationFloat="19.7917614,535.2417" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="5" EventName="BeforePrint" PropertyName="Text" Expression="'- Giá trị CT: '" />
+          </ExpressionBindings>
+          <StylePriority Ref="6" UseFont="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="7" ControlType="XRLabel" Name="label26" Multiline="true" Text="- Ngày lấy mẫu:" TextAlignment="TopLeft" SizeF="127.083267,22.999939" LocationFloat="19.7917614,350.6375" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="8" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="9" ControlType="XRLabel" Name="label25" Multiline="true" Text="- Ngày trả kết quả:" TextAlignment="TopLeft" SizeF="144.7916,22.999939" LocationFloat="19.7917614,572.162537" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="10" UseFont="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="11" ControlType="XRLabel" Name="label21" Multiline="true" Text="label21" SizeF="719.208252,23.00003" LocationFloat="19.79177,609.0834" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="12" EventName="BeforePrint" PropertyName="Text" Expression="'- Kết quả RT-PCR SARS-COV-2: ' + [KetQua]" />
+          </ExpressionBindings>
+          <StylePriority Ref="13" UseFont="false" />
+        </Item4>
+        <Item5 Ref="14" ControlType="XRLabel" Name="label20" TextFormatString="{0:dd/MM/yyyy HH:mm:ss}" Multiline="true" Text="label20" SizeF="574.4167,23" LocationFloat="164.583328,572.162537" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="15" EventName="BeforePrint" PropertyName="Text" Expression="[NgayKetQua]" />
+          </ExpressionBindings>
+          <StylePriority Ref="16" UseFont="false" />
+        </Item5>
+        <Item6 Ref="17" ControlType="XRLabel" Name="label19" Multiline="true" Text="label19" TextAlignment="TopLeft" SizeF="613.9999,23" LocationFloat="125.000031,535.2417" Font="Times New Roman, 13pt, style=Bold" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="18" EventName="BeforePrint" PropertyName="Text" Expression="[CTE]" />
+          </ExpressionBindings>
+          <StylePriority Ref="19" UseFont="false" UseTextAlignment="false" />
+        </Item6>
+        <Item7 Ref="20" ControlType="XRLabel" Name="label18" Multiline="true" Text="label18" SizeF="719.208252,23" LocationFloat="19.7916832,498.320831" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="21" EventName="BeforePrint" PropertyName="Text" Expression="'- Mã Code: ' + [MaLIS]" />
+          </ExpressionBindings>
+          <StylePriority Ref="22" UseFont="false" />
+        </Item7>
+        <Item8 Ref="23" ControlType="XRLabel" Name="label17" Multiline="true" Text="label17" SizeF="719.208252,23" LocationFloat="19.7916832,461.4" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="24" EventName="BeforePrint" PropertyName="Text" Expression="'- Đơn vị thực hiện xét nghiệm: ' + [NoiXN]" />
+          </ExpressionBindings>
+          <StylePriority Ref="25" UseFont="false" />
+        </Item8>
+        <Item9 Ref="26" ControlType="XRLabel" Name="label15" Multiline="true" Text="label15" SizeF="719.208252,23" LocationFloat="19.7916832,387.558319" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="27" EventName="BeforePrint" PropertyName="Text" Expression="'- Đơn vị lấy mẫu: ' + [NoiLayMau]" />
+          </ExpressionBindings>
+          <StylePriority Ref="28" UseFont="false" />
+        </Item9>
+        <Item10 Ref="29" ControlType="XRLabel" Name="label14" TextFormatString="{0:dd/MM/yyyy HH:mm:ss}" Multiline="true" Text="label14" SizeF="592.1249,23" LocationFloat="146.875031,350.637482" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="30" EventName="BeforePrint" PropertyName="Text" Expression="[NgayLayMau]" />
+          </ExpressionBindings>
+          <StylePriority Ref="31" UseFont="false" />
+        </Item10>
+        <Item11 Ref="32" ControlType="XRLabel" Name="label16" Multiline="true" Text="2. Đơn vị thực hiện xét nghiệm:" TextAlignment="TopLeft" SizeF="364.3333,22.9999847" LocationFloat="0.9999911,424.479156" Font="Times New Roman, 13pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="33" UseFont="false" UseTextAlignment="false" />
+        </Item11>
+        <Item12 Ref="34" ControlType="XRLabel" Name="label13" Multiline="true" Text="- Loại mẫu xét nghiệm: Dịch tỵ hầu (RT-PCR SARS-COV-2)" TextAlignment="TopLeft" SizeF="719.2083,22.9999847" LocationFloat="19.7916832,313.716644" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="35" UseFont="false" UseTextAlignment="false" />
+        </Item12>
+        <Item13 Ref="36" ControlType="XRLabel" Name="label12" Multiline="true" Text="1. Thông tin bệnh phẩm:" TextAlignment="TopLeft" SizeF="364.3333,22.9999847" LocationFloat="0,276.7958" Font="Times New Roman, 13pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="37" UseFont="false" UseTextAlignment="false" />
+        </Item13>
+        <Item14 Ref="38" ControlType="XRLabel" Name="label11" Multiline="true" Text="Đã được xét nghiệm Sars-CoV-2 như sau:" TextAlignment="TopLeft" SizeF="364.3333,22.9999847" LocationFloat="0,239.874969" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="39" UseFont="false" UseTextAlignment="false" />
+        </Item14>
+        <Item15 Ref="40" ControlType="XRLabel" Name="label10" Multiline="true" Text="label10" SizeF="737.999939,23" LocationFloat="0.9999911,191.874969" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="41" EventName="BeforePrint" PropertyName="Text" Expression="'Địa chỉ cư trú: ' + [SoNha] + ', ' + [PhuongXa] + ', ' + [QuanHuyen] + ', ' +  [TinhThanh]" />
+          </ExpressionBindings>
+          <StylePriority Ref="42" UseFont="false" />
+        </Item15>
+        <Item16 Ref="43" ControlType="XRLabel" Name="label9" Multiline="true" Text="label9" TextAlignment="TopLeft" SizeF="100,23" LocationFloat="543.499939,162.874969" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="44" EventName="BeforePrint" PropertyName="Text" Expression="Iif([NamSinhNam] == '',[NamSinhNu],[NamSinhNam] )" />
+          </ExpressionBindings>
+          <StylePriority Ref="45" UseFont="false" UseTextAlignment="false" />
+        </Item16>
+        <Item17 Ref="46" ControlType="XRLabel" Name="label8" Multiline="true" Text="label8" SizeF="363.3333,22.9999924" LocationFloat="0.9999911,162.874969" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="47" EventName="BeforePrint" PropertyName="Text" Expression="'Ông/Bà: ' + [HoTen]" />
+          </ExpressionBindings>
+          <StylePriority Ref="48" UseFont="false" />
+        </Item17>
+        <Item18 Ref="49" ControlType="XRLabel" Name="label7" Multiline="true" Text="Năm sinh:" TextAlignment="TopLeft" SizeF="84.1665955,22.9999924" LocationFloat="459.333344,162.874969" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+          <StylePriority Ref="50" UseFont="false" UseTextAlignment="false" />
+        </Item18>
+        <Item19 Ref="51" ControlType="XRLabel" Name="label6" Multiline="true" Text="Bệnh viện Tai Mũi Họng TP.HCM xác nhận:" TextAlignment="TopLeft" SizeF="363.3333,23" LocationFloat="0.9999911,133.874969" Font="Times New Roman, 13pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="52" UseFont="false" UseTextAlignment="false" />
+        </Item19>
+        <Item20 Ref="53" ControlType="XRLabel" Name="label1" Multiline="true" Text="GIẤY XÁC NHẬN&#xD;&#xA;KẾT QUẢ XÉT NGHIỆM RT-PCR SARS-COV-2" TextAlignment="TopCenter" SizeF="526.8333,63.6249847" LocationFloat="112.45829,40" Font="Times New Roman, 16pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="54" UseFont="false" UseTextAlignment="false" />
+        </Item20>
+      </Controls>
+    </Item2>
+    <Item3 Ref="55" ControlType="BottomMarginBand" Name="bottomMarginBand1" HeightF="39" />
+    <Item4 Ref="56" ControlType="ReportHeaderBand" Name="ReportHeader" HeightF="54.1666679">
+      <Controls>
+        <Item1 Ref="57" ControlType="XRPanel" Name="panel2" SizeF="406.25,54.1666679" LocationFloat="332.75,0">
+          <Controls>
+            <Item1 Ref="58" ControlType="XRLine" Name="line1" SizeF="213.541656,2" LocationFloat="93,45.3749962" />
+            <Item2 Ref="59" ControlType="XRLabel" Name="label4" Multiline="true" Text="Độc lập - Tự do - Hạnh phúc" TextAlignment="TopCenter" SizeF="390.2498,23.0000019" LocationFloat="6.00003052,23.958334" Font="Times New Roman, 13pt, style=Bold" Padding="2,2,0,0,100">
+              <StylePriority Ref="60" UseFont="false" UseTextAlignment="false" />
+            </Item2>
+            <Item3 Ref="61" ControlType="XRLabel" Name="label5" Multiline="true" Text="CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM" TextAlignment="TopCenter" SizeF="390.2499,23" LocationFloat="6.00003052,0" Font="Times New Roman, 13pt, style=Bold" Padding="2,2,0,0,100">
+              <StylePriority Ref="62" UseFont="false" UseTextAlignment="false" />
+            </Item3>
+          </Controls>
+        </Item1>
+        <Item2 Ref="63" ControlType="XRPanel" Name="panel1" SizeF="254.166641,54.1666679" LocationFloat="0,0">
+          <Controls>
+            <Item1 Ref="64" ControlType="XRLine" Name="line2" SizeF="139.583328,2.083332" LocationFloat="54.54165,44.08336" />
+            <Item2 Ref="65" ControlType="XRLabel" Name="label3" Multiline="true" Text="BỆNH VIỆN TAI MŨI HỌNG" TextAlignment="TopCenter" SizeF="246.666641,23.0000019" LocationFloat="0.999990463,23.958334" Font="Times New Roman, 13pt, style=Bold" Padding="2,2,0,0,100">
+              <StylePriority Ref="66" UseFont="false" UseTextAlignment="false" />
+            </Item2>
+            <Item3 Ref="67" ControlType="XRLabel" Name="label2" Multiline="true" Text="SỞ Y TẾ TP HỒ CHÍ MINH" TextAlignment="TopCenter" SizeF="246.666641,23" LocationFloat="0.999990463,0" Font="Times New Roman, 13pt" Padding="2,2,0,0,100">
+              <StylePriority Ref="68" UseFont="false" UseTextAlignment="false" />
+            </Item3>
+          </Controls>
+        </Item2>
+      </Controls>
+    </Item4>
+    <Item5 Ref="69" ControlType="ReportFooterBand" Name="ReportFooter" HeightF="162.791565">
+      <Controls>
+        <Item1 Ref="70" ControlType="XRLabel" Name="label23" Multiline="true" Text="GIÁM ĐỐC" TextAlignment="TopCenter" SizeF="443.500031,27.1666222" LocationFloat="295.499939,38.1665955" Font="Times New Roman, 13pt, style=Bold" Padding="2,2,0,0,100">
+          <StylePriority Ref="71" UseFont="false" UseTextAlignment="false" />
+        </Item1>
+        <Item2 Ref="72" ControlType="XRLabel" Name="label22" Multiline="true" Text="Thành phố Hồ Chí Minh, ngày         tháng          năm        " TextAlignment="TopCenter" SizeF="443.500031,27.1666222" LocationFloat="295.4999,9.999974" Font="Times New Roman, 13pt, style=Italic" Padding="2,2,0,0,100">
+          <StylePriority Ref="73" UseFont="false" UseTextAlignment="false" />
+        </Item2>
+      </Controls>
+    </Item5>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.ObjectBinding.ObjectDataSource,DevExpress.DataAccess.v20.1" Name="objectDataSource1" Base64="PE9iamVjdERhdGFTb3VyY2UgTmFtZT0ib2JqZWN0RGF0YVNvdXJjZTEiPjxEYXRhU291cmNlIFR5cGU9IldlYkFwcGxpY2F0aW9uMS5Nb2RlbHMuS2V0UXVhUENSLCBXZWJBcHBsaWNhdGlvbjEsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsIiAvPjwvT2JqZWN0RGF0YVNvdXJjZT4=" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

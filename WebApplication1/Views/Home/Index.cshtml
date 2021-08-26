@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="card">
+    <div class="card-header bg-primary">
+        <h4 class="text-white">Tra cứu kết quả xét nghiệm Covid-19: RT-PCR</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="lbHoTen">Họ và tên</span>
+                    </div>
+                    <input type="text" class="form-control" id="txtHoTen" />
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="lbNamSinh">Năm sinh (VD: 1982)</span>
+                    </div>
+                    <input type="text" class="form-control" maxlength="4" id="txtNamSinh" aria-describedby="lbNamSinh" />
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="lbSoDienThoai">Số điện thoại</span>
+                    </div>
+                    <input type="text" class="form-control" id="txtSoDienThoai" aria-describedby="lbSoDienThoai" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 float-right">
+                <button class="btn btn-primary float-right" id="btnLayThongTin">Lấy thông tin</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<hr />
+<div id="divKetQuaPcr"></div>
+
+
+@section Scripts{
+    <script>
+        function LayThongTin() {
+            $("#btnLayThongTin").click(function () {
+                var hoTen = $("#txtHoTen").val();
+                var namSinh = $("#txtNamSinh").val();
+                var soDienThoai = $("#txtSoDienThoai").val();
+
+                if (hoTen.trim() == "") {
+                    swal.fire("Họ tên không được để trống");
+                    return false;
+                }
+                if (namSinh.trim() == "") {
+                    swal.fire("Năm sinh không được để trống");
+                    return false;
+                }
+                if (soDienThoai.trim() == "") {
+                    swal.fire("Số điện thoại không được để trống");
+                    return false;
+                }
+                if (true) {
+                    $.ajax({
+                        type: "GET",
+                        url: "/Home/LayThongTin",
+                        //data: JSON.stringify(objArr),
+                        data: { 'HoTen': hoTen, 'NamSinh': namSinh, 'SoDienThoai': soDienThoai },
+                        //contentType: "application/json; charset=utf-8",
+                        dataType: "text",
+                        success: function (responses) {
+                            if (responses === 0 || responses === "0") {
+                                swal.fire("Không lấy được thông tin");
+                            } 
+                            else {
+                                $("#divKetQuaPcr").html(responses);
+                            }
+                        },
+                        failure: function (response) {
+                            alert("failure: GetListChiDinhDaLayMau" + response.responseText);
+                        },
+                        error: function (response) {
+                            alert("error: GetListChiDinhDaLayMau" + response.responseText);
+                        }
+                    });
+                }
+
+            });
+
+        }
+
+        
+        $(document).ready(function () {
+            LayThongTin();
+        });
+    </script>
+}

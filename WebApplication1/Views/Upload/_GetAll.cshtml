@@ -1,0 +1,160 @@
+﻿@model IEnumerable<KetQuaPCR>
+
+@{
+    var stt = 1;
+    //var codeXn = ViewBag.CodeXn;
+}
+
+@*<div class="card">
+        <div class="card-header bg-info" style="padding-bottom: 0px; padding-top: 5px">
+            <h5 class="card-title text-white">
+                Danh sách
+            </h5>
+        </div>
+
+    </div>*@
+
+
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="float-right">
+            <button id="btnXemDanhSach" class="btn btn-primary">Xem danh sách</button>
+        </div>
+
+        <table id="tblDanhSachKetQuaPcr" class="table display table-striped table-responsive table-bordered" style="width:100%; font-size: 13px; color: black">
+            <thead>
+                <tr class="text-center">
+                    @*<th>STT</th>*@
+                    <th>Họ tên</th>
+                    <th>Năm sinh</th>
+                    <th>Giới tính</th>
+                    <th>Điện thoại</th>
+                    @*<th>CMND</th>*@
+                    <th>Số nhà</th>
+                    <th>Phường/Xã</th>
+                    <th>Quận/Huyện</th>
+                    <th>Tỉnh/Thành</th>
+                    @*<th>Nơi lấy mẫu</th>*@
+                    @*<th>Nơi xét nghiệm</th>*@
+                    <th>Kết quả</th>
+                    <th>CT E</th>
+                    <th>Ngày kết quả</th>
+                    <th>Ngày lấy mẫu</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderBy(m => m.NgayKetQua))
+                {
+                    <tr>
+                        @*<td>@(stt++)</td>*@
+                        <td style="color: blue; font-weight: bold">@item.HoTen</td>
+                        <td style="color: blue; font-weight: bold">
+                            @if (item.NamSinhNam != "")
+                            {
+                                <span>@item.NamSinhNam</span>
+                            }
+                            @if (item.NamSinhNu != "")
+                            {
+                                <span>@item.NamSinhNu</span>
+                            }
+                        </td>
+                        <td style="color: blue; font-weight: bold">
+                            @if (item.NamSinhNam != "")
+                            {
+                                <span>Nam</span>
+                            }
+                            @if (item.NamSinhNu != "")
+                            {
+                                <span>Nữ</span>
+                            }
+                        </td>
+                        <td>
+                            @item.SoDT
+                        </td>
+                        @*<td>@item.CMND</td>*@
+                        <td>@item.SoNha</td>
+                        <td>@item.PhuongXa</td>
+                        <td>
+                            @item.QuanHuyen
+                        </td>
+                        <td>@item.TinhThanh</td>
+                        @*<td>@item.NoiLayMau</td>*@
+                        @*<td>@item.NoiXN</td>*@
+                        <td>@item.KetQua</td>
+                        <td>@item.CTE</td>
+                        <td>@item.NgayKetQua.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                        <td>@item.NgayLayMau.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                        <td>
+                            <i class="fas fa-print"
+                               title="In kết quả"
+                               style="font-size: 24px; color: blue"
+                               onclick="InKetQua(@item.Id)"></i>
+
+
+
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+@{
+    <script>       
+        function print(doc) {
+            //alert(doc);
+            var objFra = document.createElement('iframe');   // Create an IFrame.
+            objFra.style.visibility = "hidden";    // Hide the frame.
+            objFra.src = doc;                      // Set source.
+            document.body.appendChild(objFra);  // Add the frame to the web page.
+            objFra.contentWindow.focus();       // Set focus.
+            objFra.contentWindow.print();      // Print it.
+        };
+
+        function InKetQua(id) {
+            
+            $.ajax({
+                type: "GET",
+                url: "/Upload/InKetQua",
+                //data: JSON.stringify(objArr),
+                data: { 'id': id },
+                //contentType: "application/json; charset=utf-8",
+                dataType: "text",
+                success: function (responses) {
+                    //alert(responses);
+                    if (responses === 0 || responses === "0") {
+                        swal.fire("Lỗi chưa rõ", "", "warning");
+                    } else if (responses === 1 || responses === "1") {
+                        swal.fire("Lấy phiếu in không được", "", "warning");
+                    } else {
+                        print("/ReportPrint/" + responses);
+                        //GetAll();
+                    }
+                },
+                failure: function (responses) {
+                    alert("failure: InKetQua" + responses.responseText);
+                },
+                error: function (responses) {
+                    alert("error: InKetQua" + responses.responseText);
+                }
+            });
+        }
+
+
+
+        $(document).ready(function () {
+            $('#tblDanhSachKetQuaPcr').DataTable();
+
+            $("#btnXemDanhSach").click(function () {
+                GetAll();
+            });
+            
+        });
+    </script>
+}
